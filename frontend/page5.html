@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventify: Sports Picked For You</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "accent-teal": "#00d2ff",
+                        "accent-purple": "#9d50bb",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #256af4, #00d2ff, #9d50bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #256af4, #00d2ff, #9d50bb);
+        }
+        .sport-card:hover .card-img {
+            transform: scale(1.05);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(37, 106, 244, 0.4);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden opacity-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] gradient-bg rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent-purple rounded-full blur-[120px]"></div>
+</div>
+<div class="layout-container flex flex-col items-center">
+<!-- Top Navigation -->
+<header class="w-full max-w-[1200px] flex items-center justify-between px-6 py-4 mt-2 glass-panel rounded-full sticky top-4 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="size-8 gradient-bg flex items-center justify-center rounded-lg text-white">
+<span class="material-symbols-outlined !text-xl">sports_basketball</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold tracking-tight">Eventify<span class="text-primary">:</span>Sports</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary text-sm font-bold border-b-2 border-primary" href="#">Discover</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">My Matches</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Venues</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Tickets</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-slate-200/50 dark:bg-slate-800/50 rounded-full px-4 py-2 border border-white/20">
+<span class="material-symbols-outlined text-slate-500 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-slate-500" placeholder="Find your game..." type="text"/>
+</div>
+<button class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-800"></span>
+</button>
+<div class="size-10 rounded-full border-2 border-primary p-0.5 overflow-hidden">
+<img class="w-full h-full object-cover rounded-full" data-alt="User profile picture of a young male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB97zqEbHTMol0-tJL5os8pXr8oqohSSpkskTDgYzU9yC6FMed0REOqs0VGo4YospZUNTXdq680JD5mwr7GT4A6lTcG6WWMuW5PAeQtxelnwb5WiIL4o_2fLiw9_EijFB2eS0PXlfQm7waJz6gvQE6IQsfj23ID-VFMupRVx3_AX1MvfZBdXzP5O4j5tw5SNLf3GKOQWgBjomSCHXHeC5_Shhom-IcX1y2gzGc_K6lwcOFeVFVybnQfFPgIiA8CkBDrImvdu2nOakBL"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full max-w-[1200px] px-6 py-12">
+<!-- Hero Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div class="space-y-4 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest border border-primary/20">
+<span class="animate-pulse-soft">●</span> Personalized Discovery
+                    </div>
+<h1 class="text-5xl md:text-6xl font-black tracking-tight leading-none gradient-text">Picked Just For You</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-medium leading-relaxed">
+                        Hey Alex! We've crunched the numbers. Based on your interest in <span class="text-primary font-bold">Basketball</span> and proximity to <span class="text-accent-purple font-bold">Campus</span>, these matches are calling your name.
+                    </p>
+</div>
+<button class="flex items-center gap-2 px-8 py-4 gradient-bg text-white rounded-full font-bold shadow-xl shadow-primary/30 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">map</span>
+                    View Live Map
+                </button>
+</div>
+<!-- Categories Chips -->
+<div class="flex flex-wrap gap-3 mb-12">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-bold shadow-lg">
+<span class="material-symbols-outlined">emoji_events</span>
+                    All Sports
+                </button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-full glass-panel text-slate-700 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined">groups</span>
+                    Intramural
+                </button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-full glass-panel text-slate-700 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined">star</span>
+                    Professional
+                </button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-full glass-panel text-slate-700 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined">sports_esports</span>
+                    eSports
+                </button>
+</div>
+<!-- Events Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Event Card 1: City Marathon -->
+<div class="sport-card group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-2xl transition-all hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img class="card-img w-full h-full object-cover transition-transform duration-700" data-alt="Athletes running in a crowded city marathon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9v8jSZDLVF_s2bRBIO7A8iD1qmqVktIhWZ_ln8rUVFqnDagfSfBksPLw5ookeHWPj6V0mir9MDV8TqMF3dtJzCeAFoHRBpaB8ZRSo-eQAVgQHDI1GIFAqo4myC6lVMoxMxqzltSIEwQS1j8qoCC1Plb6CdRt-yL5j3ZnVOjtOHNCJiRRBYxH896DEnSgBNERFx9hUgrIuZLy93DiCE_VSHvBsS9e2CyF6gHDcJgJBmBr8dfc6PMPTWjQlkG5xu0EutZGU0Hysq65L"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-primary font-black text-sm flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">analytics</span> 98% Match
+                            </span>
+<span class="px-3 py-1 bg-green-500 rounded-full text-white font-bold text-xs flex items-center gap-1 w-fit animate-pulse-soft">
+<span class="material-symbols-outlined !text-xs">sensors</span> LIVE
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-black text-slate-900 dark:text-white leading-tight">City Marathon 2024</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-2">Join thousands of runners through the heart of the city. High energy, local fans, and a vibe you can't miss.</p>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-bold text-sm">
+<span class="material-symbols-outlined !text-lg text-primary">calendar_today</span> Oct 12
+                            </div>
+<div class="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-bold text-sm">
+<span class="material-symbols-outlined !text-lg text-primary">location_on</span> Downtown
+                            </div>
+</div>
+<button class="w-full py-4 gradient-bg text-white font-black rounded-full glow-hover transition-all">Grab Ticket — $25</button>
+</div>
+</div>
+<!-- Event Card 2: Tennis -->
+<div class="sport-card group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-2xl transition-all hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img class="card-img w-full h-full object-cover transition-transform duration-700" data-alt="Tennis player serving on a professional court" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_9eMHb31I3Fg_DHbmsxNT5IzD22ytsBOXwDg4A1rS9DTO7a3LEI4cD_B2HUt2VI8ckSsLqC9WyFdzhJhCv3ei2vLa62VXgUzYv8lZPxwfUGaLNJ1QNy64YJ1vvp_ntuklHNVN4alBaDOakB7gE6AUPIgPZnRplbilyZCe37c9ochUwfnW_zJJGluFwDLTm5lXiu3_btcbjoGzSNZznsPoq7zh96KYqa2fngrNNmI4doF4d56EWEpzokOxOFaugLVOsAFegie_AJ6-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-accent-purple font-black text-sm flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">bolt</span> Trending at Uni
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-black text-slate-900 dark:text-white leading-tight">Elite Tennis Open</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-2">The semi-finals are here! Witness high-speed serves and incredible athleticism at the University Arena.</p>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-bold text-sm">
+<span class="material-symbols-outlined !text-lg text-primary">calendar_today</span> Tomorrow
+                            </div>
+<div class="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-bold text-sm">
+<span class="material-symbols-outlined !text-lg text-primary">location_on</span> Campus Arena
+                            </div>
+</div>
+<button class="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-black rounded-full hover:bg-slate-200 transition-all border border-slate-200">Notify Me</button>
+</div>
+</div>
+<!-- Event Card 3: Basketball -->
+<div class="sport-card group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-2xl transition-all hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img class="card-img w-full h-full object-cover transition-transform duration-700" data-alt="Basketball player dunking in a high-intensity game" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiJ3Dq6s3ab2lFatRbakyvbA4ez1QsyPSeOaJ6pwTY5qrU5qYOSMNWNdDlubzMLHT6kUWwTbTIG_G90gQs58WvZNx_DLcnpAWuGquJQY-ryYkyJHlRgE6wWSCexJMBYRH2qT6bEeL4D_BoK12DOHPUYIJMYIElWR6SuTOJtGlcBwGG9dAsxE3exaFgavt9k577RAqZyZl1s9JxzyQ8u2eKs-LchThXnK54TxgrpOlv030ZLaZr8JjUG-3QTYxqEHuDk4plTH2Sr3Xr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-primary font-black text-sm flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">analytics</span> 95% Match
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-2xl font-black text-slate-900 dark:text-white leading-tight">Basketball Finals</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-2">Our home team is in the finals. Get your tickets early, these always sell out in minutes!</p>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-bold text-sm">
+<span class="material-symbols-outlined !text-lg text-primary">calendar_today</span> Oct 15
+                            </div>
+<div class="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-bold text-sm">
+<span class="material-symbols-outlined !text-lg text-primary">location_on</span> Field House
+                            </div>
+</div>
+<button class="w-full py-4 gradient-bg text-white font-black rounded-full glow-hover transition-all">Get Tickets — $15</button>
+</div>
+</div>
+</div>
+<!-- Personalized Recommendation Panel -->
+<section class="mt-20 p-8 glass-panel rounded-xl flex flex-col lg:flex-row items-center gap-10">
+<div class="flex-1 space-y-4">
+<h2 class="text-3xl font-black text-slate-900">Why these events?</h2>
+<p class="text-slate-600 font-medium">Our algorithm scans thousands of events to find the ones that fit your vibe perfectly.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+<div class="flex items-center gap-3 p-4 bg-white/50 rounded-lg">
+<div class="size-10 gradient-bg rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">near_me</span>
+</div>
+<div>
+<p class="font-bold text-sm">Under 2 Miles</p>
+<p class="text-xs text-slate-500">Close to your dorm</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-white/50 rounded-lg">
+<div class="size-10 bg-accent-teal rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">history</span>
+</div>
+<div>
+<p class="font-bold text-sm">Past Interests</p>
+<p class="text-xs text-slate-500">You loved Basketball</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-white/50 rounded-lg">
+<div class="size-10 bg-accent-purple rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<div>
+<p class="font-bold text-sm">Friends Going</p>
+<p class="text-xs text-slate-500">4 friends attending</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-white/50 rounded-lg">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">sell</span>
+</div>
+<div>
+<p class="font-bold text-sm">Price Range</p>
+<p class="text-xs text-slate-500">Within student budget</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/3 w-full">
+<div class="relative bg-slate-900 rounded-xl p-8 text-white overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined !text-6xl">insights</span>
+</div>
+<h4 class="text-xl font-bold mb-2">Student Perk</h4>
+<p class="text-slate-400 text-sm mb-6">Flash your student ID at any of these events for 50% off concessions.</p>
+<div class="flex items-center gap-2 mb-8">
+<div class="flex -space-x-2">
+<img class="size-8 rounded-full border-2 border-slate-900" data-alt="Student profile 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8ul1W96nlH9Tw8iyXqKirDIi-rOZFxmPX-MlGBrk8VQtsmMxPDRtV6Gldrak6pQGxSRUBzvFWXe3FhtA_f2e-g68oOSx8RvESLoiNA85femwverhCBfahQU0Z0RkwuCVsqATWryTNj-HYKL47CI9AtMSKnj4EkU_bwmeYx959RUYIenUpDpWgD1eTGSF1pjXolMqtMWw5x5sJDihZNBm9hW6Y069C6qgQncDzmZZD7hGTv9wN0ybmbkahl0bv-qSb6e9zPJvhTSe"/>
+<img class="size-8 rounded-full border-2 border-slate-900" data-alt="Student profile 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCheC8c8x2IeYaXs9q1kLnEKHc03ANaSpJpa-eTPQje4pDCDNL_TXFaoBNmsiqDe0wAMHOOODa7trJNJUUJJIgasNt_0FLhIq0h8pTxH2hev8xNxIiVfdUlRkC5cuQ4oG27tx2MMoXxWPu0Wc2_pp_P08RHn41Vy-zcZWBUbqllfbjAicWYYd1QtLZOucRAzlv84fQTyq3SFq72mmhqi0sUIQEilQKgozmyvbTcm9CpT-2_mFaPZKw75LZ1fTJje7h3V7D3MSlLYdOk"/>
+<img class="size-8 rounded-full border-2 border-slate-900" data-alt="Student profile 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHd39vlTzOjp3qzM8r6GjvojedPgCcgvIeE4t-ohOjr4_fApkGHbkcS4vmZ3w39OrQOdqZ4CRSgdC9kxzR8QEqZfaM5jcrjbOC7hiC1idPHCsbNno8Jp_yh-tE957Obsw71CGSOJvrW08NsxKIVPd7FWubtu3YbZ-hCZ4m3F3M-v6KmiTOvzaWF-jIaHMiT0XMSwqAyZ4djW-Tcx6A7jULa0tli7GPDrbQw_5I66tyeemccqizEid8VejVBpzhNLDmL9XZSM2ZxTP4"/>
+</div>
+<span class="text-xs font-medium text-slate-400">+ 128 students going</span>
+</div>
+<button class="w-full py-3 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-colors">Learn More</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-white dark:bg-slate-900 py-12 px-6 mt-20 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-4">
+<div class="size-6 gradient-bg flex items-center justify-center rounded text-white">
+<span class="material-symbols-outlined !text-sm">sports_basketball</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-extrabold tracking-tight">Eventify</h2>
+</div>
+<p class="text-slate-500 text-sm max-w-sm">Discover the heart of your campus through events designed just for you. From big stadium finals to local park meetups.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4">App</h4>
+<ul class="text-slate-500 text-sm space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">Discover</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tickets</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Clubs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Support</h4>
+<ul class="text-slate-500 text-sm space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Campus Safety</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-xs">
+<p>© 2024 Eventify Inc. Built for students, by students.</p>
+<div class="flex gap-6">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

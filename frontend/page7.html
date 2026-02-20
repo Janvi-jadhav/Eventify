@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventify: Networking Picked For You</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "secondary": "#06b6d4",
+                        "accent": "#9333ea",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top left, #256af420, transparent),
+                        radial-gradient(circle at bottom right, #9333ea20, transparent),
+                        #f5f6f8;
+            min-height: 100vh;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(37, 106, 244, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #256af4, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-badge {
+            box-shadow: 0 0 15px rgba(37, 106, 244, 0.4);
+        }
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Sticky Top Navigation -->
+<header class="sticky top-0 z-50 nav-blur border-b border-white/20 px-4 md:px-10 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="p-2 bg-primary rounded-xl text-white">
+<span class="material-symbols-outlined block">hub</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">Eventify</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Discover</a>
+<a class="text-primary text-sm font-extrabold flex items-center gap-1" href="#">
+                            Networking <span class="size-1.5 rounded-full bg-primary"></span>
+</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">My Events</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Groups</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-64 pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search events..." type="text"/>
+</div>
+<button class="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-slate-700">notifications</span>
+</button>
+<div class="size-10 rounded-full bg-gradient-to-tr from-primary to-accent p-0.5">
+<img alt="User avatar" class="w-full h-full rounded-full bg-white" data-alt="Student profile avatar with a friendly face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQv29VpbfvNzOAibdDs1LSxoSRZr-Cvhq9qTDJp-XJ_Rcf5FSQ795XPtB68vKusFPIroaiLpP0J8MkFHoQAgqgZw7lAtMaE9JciQpYjyeXi5YXDQrr4f7APdfwx2MPU-uLilgMrDCVU9CXB2ix6chSJptVIXDrz_U9ojD4CAR3jHPsjXk_RTfLT2CSse9BtnwRvACIsXqgG-_fve77U01u964sOkC_sxeSEi8ZfVZBFkut0KNq53ElKdSTJuo_uheQdkdsM9R_QFAn"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-4 py-12">
+<!-- Hero Header -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-4">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                        AI-Powered Curation
+                    </div>
+<h1 class="text-5xl md:text-6xl font-black tracking-tight mb-4">
+                        Networking <span class="gradient-text">Picked Just For You</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                        Based on your interest in <span class="text-slate-900 dark:text-white underline decoration-primary/40">Product Design</span> and <span class="text-slate-900 dark:text-white underline decoration-accent/40">Tech Startups</span>.
+                    </p>
+</div>
+<button class="px-6 py-3 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 text-sm font-bold flex items-center gap-2 hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-lg">tune</span>
+                    Edit Preferences
+                </button>
+</div>
+<!-- Animated Filter Tabs -->
+<div class="flex gap-3 mb-10 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex shrink-0 items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-bold shadow-lg shadow-primary/25 transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+                    For You
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-800 font-bold hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+                    Founders
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-800 font-bold hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-accent">palette</span>
+                    Designers
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-800 font-bold hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-secondary">memory</span>
+                    Developers
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-800 font-bold hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-orange-500">campaign</span>
+                    Marketing
+                </button>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1: Founders Mixer -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-56">
+<div class="absolute inset-0 bg-slate-200 animate-pulse group-hover:animate-none">
+<img class="w-full h-full object-cover" data-alt="Vibrant group of young students networking at a mixer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLgTPOSJ__SxR60whUnmN_iq-yxhvGyaa0w2iSSBIwsdnkLRBiaXpZz4lmSxnEML3awNJhDBkki4HzPMaj5I38vAvCrOYtGSFXkENEdwqdutLppAXi1kYOWW39QPNIXC7RZoG9-N9yrb1D56Efwt_FaUjbZlKc7HCnwDq7bX5EA4o4rPQhLaF6YTgmb5cMbMZb2gtQUUEFyA2AJVF0t2WgfAK7qvqUUANNevQg1w2M1SXN5omJLwFx6WzJiF1himIjggM80mqoJu95"/>
+</div>
+<div class="absolute top-4 left-4">
+<span class="glow-badge flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-white text-xs font-black">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                                98% MATCH
+                            </span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mb-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            TONIGHT • 7:00 PM
+                        </div>
+<h3 class="text-2xl font-extrabold mb-2 group-hover:text-primary transition-colors">Founders Mixer</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
+                            Connect with fellow student entrepreneurs and visionaries in an informal setting. Free coffee for the first 50!
+                        </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+<img alt="Attendee" data-alt="Attendee avatar small profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJf0hynn-dfX6IRPXo3nisHfog1hX1N_iogDqkzNRG9DasyARRo3Dc6-KmIWGWJnflq2b3nw_4VMeqXGnbBL7Nolh-XUMkqEadfRxLlotw2_lrrHFyWB2LZ_6FVsZ5wx0JTgX4Nfqw3NufnZPYqlhdt7h701PQHK1DhMXhRsh66J813b_xwDUCNJc3Urdqpe5XZa5noaYaPsevW7Am4vhIyzNFw3JQ2GeFejPXSgnWd-Im-drIb5QP8-JhSs_GNItDSjGxtmL02Gg2"/>
+</div>
+<div class="size-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+<img alt="Attendee" data-alt="Attendee avatar small profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp4lgXUTmvGBNFGIk0XAeO0EbyWbvu5_y9sy2TQ9oRFDMSbosVolXEBwk8jYWJcbldV_MGV1ndALuK245qDueoCI4SLxlDWKvX6O_7Ja_ID3OXZ1cPF3RnU5peUdfSOEMd7aregCvzZ-ym-2cJo2QkW7dUsSXV6dtNBovA5EjlUUQpG-QL-CUwm_Ht7wbT2b-PGuovpQZRjNbOXfBAwaKXMDOXyYEr3tqFVDkBqwPmC3O9mvQasDkSuIPafnvEv47X93S5a_yc5slv"/>
+</div>
+<div class="flex items-center justify-center size-8 rounded-full border-2 border-white bg-slate-100 text-[10px] font-bold">+12</div>
+</div>
+<button class="px-6 py-2 rounded-full bg-primary text-white font-bold text-sm hover:scale-105 transition-transform">Interested</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Design Thinking -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-56">
+<div class="absolute inset-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Students collaborating around a whiteboard with sticky notes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArNwII35ogvwTTKAqGMH6247RrYFzpN7aJ_IawcZ2t7XMBfsy33heg6sEKLtp95ZYNOZYB4PMWQmyDcf1H1UcXAUx1O8dO4DDSlP88ARd_8U4_wt2qol9NXTKmyTN6Hu-z-JsiBLVZ_t27Ej7_e0VEV_37tLnc6muO7UDWmpnxl-Qk1IxsU0wX2Ki_2Y8VxPEVUII_FtJhZGNeMT6KgIDg3q7hqoc4Jaa87Rt2-8NqCGXepsDCIK6hl9boeyA7jW_jLXlR_Arye-Wr"/>
+</div>
+<div class="absolute top-4 left-4">
+<span class="glow-badge flex items-center gap-1.5 px-4 py-2 rounded-full bg-accent text-white text-xs font-black">
+<span class="material-symbols-outlined text-sm">star</span>
+                                WEEKLY HIGHLIGHT
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-accent font-bold text-xs uppercase tracking-widest mb-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            SAT, OCT 12 • 2:00 PM
+                        </div>
+<h3 class="text-2xl font-extrabold mb-2 group-hover:text-accent transition-colors">Design Thinking Workshop</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
+                            A hands-on workshop to solve real-world problems using human-centered design principles. Mentors from IDEO attending.
+                        </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-400">LOCATION</span>
+<span class="text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-accent">location_on</span>
+                                    Creative Arts Hub
+                                </span>
+</div>
+<button class="px-6 py-2 rounded-full bg-accent text-white font-bold text-sm hover:scale-105 transition-transform">Join Waitlist</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Tech Pitch Night -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-56">
+<div class="absolute inset-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Futuristic stage with tech startup presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANCUp2NjJrDAof4HJvBeeqy0FF4wYC1e5x0HZg7jmvSJpnMZExlCis4psJvpw5fqg0Hp16ytLH5Yd2ZwGdQOWPNNRMFbEcn62OqT2yXaTkJ4oMa-qKDkuFZ-Hh78xjzDXO4n2eD1moZsTso51pgfYw5pctQeOyY3flg2LghyoX5akuu4KDP1ZIJWHjPqsJQ9Xa5rZLvY7R1ZBIEr43ay2l92TeCTteSvSgJ3V0sbdh5xiwz-fgs9JdilrN4qkXnn3mh8gV6K_mEi-Z"/>
+</div>
+<div class="absolute top-4 left-4">
+<span class="glow-badge flex items-center gap-1.5 px-4 py-2 rounded-full bg-secondary text-white text-xs font-black">
+<span class="material-symbols-outlined text-sm">new_releases</span>
+                                NEW ARRIVAL
+                            </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-widest mb-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            THU, OCT 17 • 6:30 PM
+                        </div>
+<h3 class="text-2xl font-extrabold mb-2 group-hover:text-secondary transition-colors">Tech Pitch Night</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
+                            Watch the brightest student startups pitch their ideas to local VCs. Includes an open networking hour afterwards.
+                        </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="p-1 rounded-lg bg-secondary/10">
+<span class="material-symbols-outlined text-secondary">confirmation_number</span>
+</div>
+<span class="text-xs font-black text-secondary">8 SEATS LEFT</span>
+</div>
+<button class="px-6 py-2 rounded-full bg-secondary text-white font-bold text-sm hover:scale-105 transition-transform">Get Tickets</button>
+</div>
+</div>
+</div>
+</div>
+<!-- More Section -->
+<div class="mt-20 flex flex-col items-center justify-center p-12 rounded-xl bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 border-2 border-dashed border-primary/20 text-center">
+<div class="size-20 rounded-full bg-white flex items-center justify-center shadow-xl mb-6">
+<span class="material-symbols-outlined text-4xl text-primary animate-bounce">search_insights</span>
+</div>
+<h2 class="text-3xl font-extrabold mb-2">Not seeing the perfect match?</h2>
+<p class="text-slate-600 dark:text-slate-400 font-medium max-w-md mb-8">
+                    The more events you interact with, the better our algorithm gets at finding your tribe.
+                </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="px-8 py-3 rounded-full bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all">
+                        Refresh Results
+                    </button>
+<button class="px-8 py-3 rounded-full bg-primary text-white font-bold hover:shadow-lg shadow-primary/20 transition-all">
+                        Tweak Interest Profile
+                    </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 px-4">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="p-1.5 bg-primary/20 rounded-lg text-primary">
+<span class="material-symbols-outlined block">hub</span>
+</div>
+<span class="font-black text-xl tracking-tight">Eventify</span>
+</div>
+<div class="flex gap-8 text-sm font-bold text-slate-500">
+<a class="hover:text-primary" href="#">Help Center</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+<div class="flex gap-4">
+<button class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<p class="text-center text-slate-400 text-xs mt-8">© 2024 Eventify. Built for the next generation of builders.</p>
+</footer>
+</div>
+</body></html>

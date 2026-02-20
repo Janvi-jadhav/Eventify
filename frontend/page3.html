@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventify - Personalize Your Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glow-active {
+            box-shadow: 0 0 20px 2px rgba(37, 106, 244, 0.4);
+            border: 2px solid #256af4;
+        }
+        .card-hover:hover {
+            transform: scale(1.02);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-20 py-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">celebration</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Eventify</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary p-0.5">
+<img alt="User profile avatar" class="h-full w-full rounded-full object-cover" data-alt="Professional male portrait avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr1B69UMAKxquaTApI8qiI8EhfStkJUjlNcptMH9zbZ6ZFoVy47CmAxy3LwpLYGwgDW59CljmTGlUcaQ8qMiIs0moLNxULBKVSnDFYxjdHn7IXMMsTXyF8rYKfoj-TjI47ZzI5Y2btGgiy_-ZFllQ7iF5pOP4wqMRpuhPQjb2R_WhPAeZwX0g2dNAc067gdrlaakTHYYr0gmvPolbPJVco9f5H1kXUz6s5rTZkN0m9ipSwrde2ifSZs8UGWXPn3Lkd45qOdDRntfsk"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-8 px-4 md:px-10">
+<div class="layout-content-container flex flex-col max-w-[1000px] flex-1">
+<!-- Progress Section -->
+<div class="flex flex-col gap-3 mb-10 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Profile Setup</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Pick any one category to unlock your personalized feed</p>
+</div>
+<p class="text-primary text-lg font-bold">100%</p>
+</div>
+<div class="h-3 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Title -->
+<div class="text-center mb-10">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-4xl md:text-5xl font-extrabold mb-4">What are you into?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">We'll find the best events based on your vibe.</p>
+</div>
+<!-- Filter Bar (Progressive Disclosure - Visible after selection) -->
+<div class="flex flex-wrap items-center justify-center gap-4 mb-10 animate-fade-in">
+<div class="group relative">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-semibold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary">school</span>
+<span>Stanford University</span>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-semibold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<span>This Weekend</span>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-semibold hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>In-person</span>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Interest Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+<!-- Tech Card (Selected State Example) -->
+<button 
+  onclick="window.location.href='page4.html'"
+  class="card-hover glow-active cursor-pointer relative group flex flex-col items-center justify-center gap-4 p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-center"
+>
+  <div class="size-16 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+    <span class="material-symbols-outlined text-4xl">terminal</span>
+  </div>
+  <p class="text-slate-900 dark:text-white text-lg font-bold">Tech</p>
+</button>
+<!-- Music Card -->
+<!-- Sports Card -->
+<button 
+  onclick="window.location.href='page5.html'"
+  class="card-hover cursor-pointer group flex flex-col items-center justify-center gap-4 p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-center transition-all glow-active">
+
+  <div class="size-16 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600">
+    <span class="material-symbols-outlined text-4xl">sports_basketball</span>
+  </div>
+
+  <p class="text-slate-900 dark:text-white text-lg font-bold">Sports</p>
+
+</button>
+<!-- Gaming Card (Selected State Example) -->
+<!-- Food Card -->
+<!-- Arts Card -->
+<button 
+  onclick="window.location.href='page6.html'"
+  class="card-hover cursor-pointer group flex flex-col items-center justify-center gap-4 p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-center transition-all glow-active">
+
+  <div class="size-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600">
+    <span class="material-symbols-outlined text-4xl">palette</span>
+  </div>
+
+  <p class="text-slate-900 dark:text-white text-lg font-bold">Arts</p>
+
+</button>
+<!-- Networking Card -->
+<button 
+  onclick="window.location.href='page7.html'"
+  class="card-hover cursor-pointer group flex flex-col items-center justify-center gap-4 p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-center transition-all glow-active">
+
+  <div class="size-16 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600">
+    <span class="material-symbols-outlined text-4xl">diversity_3</span>
+  </div>
+
+  <p class="text-slate-900 dark:text-white text-lg font-bold">Networking</p>
+
+</button>
+<!-- Wellness Card (Selected State Example) -->
+</div>
+<!-- Footer Action -->
+</div>
+</main>
+</div>
+</div>
+</body></html>

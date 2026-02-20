@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventify: Arts Picked For You</title>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "accent-purple": "#8B5CF6",
+                        "accent-pink": "#EC4899",
+                        "accent-indigo": "#6366F1",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .mesh-gradient {
+            background-color: #8B5CF6;
+            background-image: 
+                radial-gradient(at 0% 0%, #EC4899 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #6366F1 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #256af4 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #8B5CF6 0px, transparent 50%);
+        }
+        .glow-border {
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+        }
+        .hover-scale {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-scale:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen">
+<!-- Vibrant Background Layer -->
+<div class="fixed inset-0 mesh-gradient opacity-20 -z-10"></div>
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Sticky Top Navigation -->
+<header class="sticky top-0 z-50 glass px-6 md:px-20 py-4 flex items-center justify-between border-b border-white/20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-slate-900 dark:text-slate-100">
+<div class="p-2 bg-primary rounded-xl text-white">
+<span class="material-symbols-outlined !text-3xl">palette</span>
+</div>
+<h2 class="text-xl font-extrabold leading-tight tracking-tight">Eventify</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-slate-900 dark:text-slate-100 text-sm font-semibold hover:text-primary transition-colors" href="#">Discover</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary" href="#">Arts</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-semibold hover:text-primary transition-colors" href="#">Music</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-semibold hover:text-primary transition-colors" href="#">Workshops</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full glass border-white/30">
+<div class="text-slate-600 dark:text-slate-400 flex items-center justify-center pl-4 rounded-l-full">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 h-full placeholder:text-slate-500 px-4 pl-2 text-sm font-medium" placeholder="Search art events..." value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-full size-10 glass text-slate-900 hover:bg-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="flex items-center justify-center rounded-full size-10 glass text-slate-900 hover:bg-white transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary shadow-lg" data-alt="User profile avatar photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUubM7L6cWCh74qgGXUH4BxyUKh8Rd4bLW4eEX0yM_zf1GtwmA1mmAFnPXpBaaOWA_5VgNAtL3R1K7DAm_lG3Vm1MYS4icyYESd6hK9BlLH-dtPVSZ1Ivej7U2hu_l9glKuC4u58g04u3V6zaV9AjbmgtMUUoqPqS7meJjzzCbdnILaBiZ5IvmMkshJB--0Nvjfy_2pHoy6hVaO7HABnP4wODtrYzLIfSa9CwD66LcvYn7u8VU4EwoXxjTFFsMlPt97cx_62J7JQUz");'></div>
+</div>
+</header>
+<main class="px-6 md:px-20 py-10 max-w-[1440px] mx-auto w-full">
+<!-- Hero Section -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div class="max-w-2xl space-y-4">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-pink/20 text-accent-pink border border-accent-pink/30 text-xs font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined !text-sm">auto_awesome</span> Recommended for you
+                        </div>
+<h1 class="text-slate-900 dark:text-slate-100 text-5xl md:text-6xl font-black leading-tight tracking-tighter">
+                            Arts Picked <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple via-accent-pink to-accent-indigo">For You</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-medium">
+                            Based on your creative interests and college vibe. We found these gems just for your weekend.
+                        </p>
+</div>
+<button class="flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all transform hover:-translate-y-1">
+<span>Refine Interests</span>
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Category Filters -->
+<div class="flex gap-3 pb-8 overflow-x-auto no-scrollbar">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-6 font-bold shadow-md">
+<span class="material-symbols-outlined !text-lg">all_inclusive</span>
+<p class="text-sm">All Matches</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full glass px-6 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined !text-lg">brush</span>
+<p class="text-sm">Street Art</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full glass px-6 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined !text-lg">music_note</span>
+<p class="text-sm">Classical</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full glass px-6 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined !text-lg">computer</span>
+<p class="text-sm">Digital Art</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full glass px-6 font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined !text-lg">school</span>
+<p class="text-sm">Student Specials</p>
+</button>
+</div>
+<!-- Featured Card (Top Choice) -->
+<div class="mb-12 group">
+<div class="relative flex flex-col lg:flex-row items-stretch overflow-hidden rounded-xl glass border-white/40 shadow-2xl hover-scale">
+<div class="w-full lg:w-3/5 relative min-h-[300px]">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Abstract colorful modern art painting close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVxJWiCgXaLa7Dwe18hShZH1AiFpFFTLcaL78vANoWxu7YjV8CPQTbkGHkUPjKABtn_Y7q0Dg3MpmdQ6S3DloavVvWmgFsYuVbSiDFWNX5hyGY2yNyfe2NAR_QlOSvYO6artA1M-N8OJibkod-Gz_rEWKFGilst46ws0kvLLZEQ8EnTKmFTEOQuwPiErveyi3TCJEjkC4TJiN4yrjlOYZDgZr9qqUMda9CHoyE7hKG6cVsAZl0MNNCq7mqKOSCqkwPxMWX00sEigwf");'></div>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass px-4 py-2 rounded-full text-white text-xs font-black uppercase tracking-widest flex items-center gap-2 border-white/50 glow-border">
+<span class="material-symbols-outlined !text-sm text-yellow-400">star</span> Top Choice
+                                </span>
+<span class="bg-primary/90 px-4 py-2 rounded-full text-white text-xs font-black uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined !text-sm">trending_up</span> Hot Event
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-8 md:p-12 justify-center space-y-6">
+<div>
+<h3 class="text-3xl font-black text-slate-900 mb-2">Abstract Gallery Opening</h3>
+<p class="text-accent-indigo font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">location_on</span> Modern Art Museum • Tonight at 7 PM
+                                </p>
+</div>
+<p class="text-slate-600 text-lg leading-relaxed">
+                                Experience immersive digital installations and networking with local artists. A curated selection of new-wave abstract works that redefine the college art scene.
+                            </p>
+<div class="flex items-center gap-4 pt-4">
+<button class="px-8 py-3 bg-slate-900 text-white font-bold rounded-full hover:bg-primary transition-all">Get Tickets</button>
+<button class="p-3 rounded-full border border-slate-200 hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Grid Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1: Symphony Under the Stars -->
+<div class="flex flex-col glass rounded-xl overflow-hidden hover-scale border-white/30">
+<div class="relative h-56">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Orchestra playing under night sky with stars" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0_rlzLbpicwboq85r2kiL23WO6Ki4En0_j3QCoglDYm50or2DwhVXC6F3MdYo7mkSQYm5daeEazmgu7QlvuPLVdZV1WaFZe-1v_JieiPi_YKy7vbARN0SxXCedED6y2od6aKnlwde5oUGJ3NnbheI08P9tnqffHaBD5F7kTVNPLFS20W7RpXpOizasI8K4F0Sa59rBf1wgMau6W-ZC6ivDPPXw41-P9dRqU7Qa4S1Lwf01xY1mJHYVop5mG7fL9llzAIwYYXSCtFN");'></div>
+<div class="absolute top-4 right-4 glass size-10 rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-accent-purple px-3 py-1 rounded-full text-white text-[10px] font-black uppercase tracking-widest">Limited Tickets</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h4 class="text-xl font-extrabold text-slate-900">Symphony Under the Stars</h4>
+<p class="text-slate-500 text-sm line-clamp-2">A magical night of classical masterpieces performed by the University Philharmonic in the open-air theater.</p>
+<div class="flex items-center justify-between pt-4 border-t border-white/20">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Starting From</span>
+<span class="text-lg font-black text-primary">$15</span>
+</div>
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-full font-bold text-sm transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Creative Canvas Night -->
+<div class="flex flex-col glass rounded-xl overflow-hidden hover-scale border-white/30">
+<div class="relative h-56">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="People painting together in a cozy studio setting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6hUos4st0QybanXwg3QuskeYhEcT6albEzYybRlixEgmILdSnSCsyCud7SzX5wTWjm5681v8GLtU1kbavpD-enIZj0zZRBlaYXA8R0o44JZn4J_yWhQ84_5DTMbvmurYu3s6SbDNGQ7utODNnv9JxjaxL5-ZkNiat5J_6rWgkGGk8c7ABpTqnMw1B_tQzkoU0_JZf6a41PJixXrKz6pJrFz_wjAZB5UhhyTORUIGyLbauhgRpF7IBYKqHzu2N2xsNJPVyc-CE5iIA");'></div>
+<div class="absolute top-4 left-4">
+<span class="bg-accent-pink/90 px-3 py-1 rounded-full text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined !text-xs">workspace_premium</span> Member Exclusive
+                                </span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h4 class="text-xl font-extrabold text-slate-900">Creative Canvas Night</h4>
+<p class="text-slate-500 text-sm line-clamp-2">Grab a drink and a brush! Join us for a social painting workshop where no experience is needed.</p>
+<div class="flex items-center justify-between pt-4 border-t border-white/20">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Student Discount</span>
+<span class="text-lg font-black text-slate-900">Free</span>
+</div>
+<button class="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-sm transition-all hover:bg-primary">Reserve Spot</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Street Art Safari -->
+<div class="flex flex-col glass rounded-xl overflow-hidden hover-scale border-white/30">
+<div class="relative h-56">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Graffiti covered city walls with vibrant colors" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqw6XWvqJJUHeosEfWaRc5fh4dkCzI86a4JzejceEFPYJ0AXpQ0veN8UOTKaRMamZQNcEoy7eroUu8FdTEIsSfHGNINUQwkbGxDad7Z3DEQrEmeUmKjl7Jyvh8o4eYT5MiMEiJhlEraaSrrxxhz9O1SitnTWV6xJe1q6Ko6CvHq9PZ0yXV7iPbu_uq6EQusBnT3WpqCIiEQ_JAJAlJrgKBr2T_EIPIFfbunSSwce9Yla2YwpLiMvttZuBx49DAw1SB5ru-XBW9PyAg");'></div>
+</div>
+<div class="p-6 space-y-4">
+<h4 class="text-xl font-extrabold text-slate-900">Street Art Safari</h4>
+<p class="text-slate-500 text-sm line-clamp-2">A walking tour exploring the hidden murals and urban masterpieces of the downtown art district.</p>
+<div class="flex items-center justify-between pt-4 border-t border-white/20">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Time</span>
+<span class="text-lg font-black text-slate-900">Sat, 11 AM</span>
+</div>
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-full font-bold text-sm transition-all">Join Tour</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommendation Logic Note -->
+<div class="mt-20 glass p-8 rounded-xl border-dashed border-2 border-white/50 text-center max-w-3xl mx-auto">
+<div class="flex justify-center mb-4">
+<div class="p-3 bg-white rounded-full text-accent-pink shadow-inner">
+<span class="material-symbols-outlined !text-4xl">psychology_alt</span>
+</div>
+</div>
+<h5 class="text-xl font-bold text-slate-900 mb-2">Why these matches?</h5>
+<p class="text-slate-600 font-medium">
+                        We analyzed your recent saves for <span class="text-accent-purple font-bold">digital illustration</span> and your attendance at the <span class="text-accent-pink font-bold">Pop Art Expo</span> to bring you these personalized arts experiences.
+                    </p>
+</div>
+</main>
+<!-- Bottom Floating Action -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+<div class="glass px-6 py-3 rounded-full flex items-center gap-8 shadow-2xl border-white/50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold uppercase">Map</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="text-[10px] font-bold uppercase">Tickets</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase">Me</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>
