@@ -113,22 +113,30 @@ export default function Page2() {
             {/* Navigation Links */}
             <nav className="hidden lg:flex items-center gap-10 px-8">
               <a className="text-primary font-bold text-sm nav-active-pill" href="#home">Home</a>
-              <a className="text-slate-600 dark:text-slate-400 hover:text-primary font-medium text-sm transition-colors" href="#explore">Explore</a>
-              <a className="text-slate-600 dark:text-slate-400 hover:text-primary font-medium text-sm transition-colors" onClick={() => navigate('/page8')}>My Events</a>
+              <button className="text-slate-600 dark:text-slate-400 hover:text-primary font-medium text-sm transition-colors" onClick={() => navigate('/calendar')}>Calendar</button>
+              <button className="text-slate-600 dark:text-slate-400 hover:text-primary font-medium text-sm transition-colors" onClick={() => navigate('/page8')}>My Events</button>
             </nav>
 
             {/* Actions */}
             <div className="flex items-center gap-4">
-              <button className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 transition-colors relative">
-                <span className="material-symbols-outlined text-2xl">favorite</span>
-                <span className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
-              </button>
-              <button className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 transition-colors">
-                <span className="material-symbols-outlined text-2xl">notifications</span>
+              <button 
+                onClick={() => navigate('/calendar')}
+                className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 transition-colors relative"
+                title="Calendar"
+              >
+                <span className="material-symbols-outlined text-2xl">calendar_today</span>
               </button>
               <button 
-                onClick={() => navigate('/page9')}
+                className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 transition-colors relative"
+                title="Notifications"
+              >
+                <span className="material-symbols-outlined text-2xl">notifications</span>
+                <span className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+              </button>
+              <button 
+                onClick={() => navigate('/profile')}
                 className="h-10 w-10 rounded-full border-2 border-primary/20 overflow-hidden cursor-pointer hover:border-primary transition-colors"
+                title="Profile"
               >
                 <img 
                   alt="Profile"
@@ -254,12 +262,30 @@ export default function Page2() {
           <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/5 rounded-full -ml-10 -mb-10"></div>
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="max-w-xl text-center md:text-left">
-              <h3 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-4 tracking-tight">Tailored just for you</h3>
+              <h3 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-4 tracking-tight">Personalize Your Experience</h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 font-medium mb-8">Select your favorite categories and we'll build a personalized feed of events you'll love.</p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <button className="px-5 py-2.5 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm">Music</button>
-                <button className="px-5 py-2.5 rounded-full border-2 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-400 font-bold hover:border-primary hover:text-primary transition-all text-sm">Technology</button>
-                <button className="px-5 py-2.5 rounded-full border-2 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-400 font-bold hover:border-primary hover:text-primary transition-all text-sm">Art & Design</button>
+                <button 
+                  onClick={() => navigate('/preferences-music')}
+                  className="px-5 py-2.5 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-lg">music_note</span>
+                  Music
+                </button>
+                <button 
+                  onClick={() => navigate('/preferences-tech')}
+                  className="px-5 py-2.5 rounded-full border-2 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-400 font-bold hover:border-primary hover:text-primary transition-all text-sm flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-lg">computer</span>
+                  Tech
+                </button>
+                <button 
+                  onClick={() => navigate('/preferences-arts')}
+                  className="px-5 py-2.5 rounded-full border-2 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-400 font-bold hover:border-primary hover:text-primary transition-all text-sm flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-lg">palette</span>
+                  Arts
+                </button>
               </div>
             </div>
           </div>

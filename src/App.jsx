@@ -10,6 +10,10 @@ import Page8 from './pages/Page8'
 import Page9 from './pages/Page9'
 import Profile from './pages/Profile'
 import Admin from './pages/Admin'
+import PreferencesMusic from './pages/PreferencesMusic'
+import PreferencesTech from './pages/PreferencesTech'
+import PreferencesArts from './pages/PreferencesArts'
+import EventsCalendar from './pages/EventsCalendar'
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
         <Route path="/page9" element={<Page9 />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/preferences-music" element={<PreferencesMusic />} />
+        <Route path="/preferences-tech" element={<PreferencesTech />} />
+        <Route path="/preferences-arts" element={<PreferencesArts />} />
+        <Route path="/calendar" element={<EventsCalendar />} />
       </Routes>
     </BrowserRouter>
   )
