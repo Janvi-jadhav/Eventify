@@ -226,7 +226,7 @@ Register user for an event.
 
 ## 🎥 Project Demo
 
-🎬 **Demo Video:** [Add YouTube / Drive link here]
+🎬 **Demo Video:** [https://drive.google.com/drive/folders/1URYCXoN6ToVhyUKzDKlSFY1lIG6vRKiW]
 
 This video demonstrates:
 - Login flow
