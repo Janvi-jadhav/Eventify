@@ -147,6 +147,17 @@ npm start
 | 🏠 **Dashboard** | Trending events with animated hover effects and wishlist option |
 | 🎯 **Preferences Page** | Interactive category selection with animated cards |
 
+<img width="1907" height="1022" alt="Screenshot 2026-02-21 063956" src="https://github.com/user-attachments/assets/0719937c-eff3-400a-be4c-91ea44a71b37" />
+<img width="1913" height="965" alt="Screenshot 2026-02-21 064053" src="https://github.com/user-attachments/assets/6e3821ba-56d1-4f8c-8d4d-8881ffad464d" />
+<img width="1883" height="1019" alt="Screenshot 2026-02-21 064137" src="https://github.com/user-attachments/assets/eb9df62b-8b76-44a9-88d6-4febf808940b" />
+<img width="1895" height="1023" alt="Screenshot 2026-02-21 064155" src="https://github.com/user-attachments/assets/d9e56c35-9e03-4d5d-990d-c2dc491c4c6d" />
+<img width="1914" height="1030" alt="Screenshot 2026-02-21 064347" src="https://github.com/user-attachments/assets/c06fb151-015b-4e3d-9f25-d25fc2489fd0" />
+
+
+
+
+
+
 ---
 
 ## 🧩 System Architecture
