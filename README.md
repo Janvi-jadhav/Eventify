@@ -22,8 +22,8 @@
 
 ## 🌐 Hosted Project Link
 
-- 🔗 **Live Demo:** [Add your hosted link here]
-- 🔗 **GitHub Repository:** []
+- 🔗 **Live Demo:** []
+- 🔗 **GitHub Repository:** [https://github.com/Janvi-jadhav/Eventify.git]
 
 ---
 
