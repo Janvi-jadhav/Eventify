@@ -22,7 +22,7 @@
 
 ## 🌐 Hosted Project Link
 
-- 🔗 **Live Demo:** [eventify-sooty-eight.vercel.app]
+- 🔗 **Live Demo:** [https://eventify-sooty-eight.vercel.app/]
 - 🔗 **GitHub Repository:** [https://github.com/Janvi-jadhav/Eventify.git]
 
 ---
