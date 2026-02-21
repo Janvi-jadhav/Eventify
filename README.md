@@ -23,7 +23,7 @@
 ## 🌐 Hosted Project Link
 
 - 🔗 **Live Demo:** [Add your hosted link here]
-- 🔗 **GitHub Repository:** [Add GitHub repo link here]
+- 🔗 **GitHub Repository:** []
 
 ---
 
@@ -243,7 +243,7 @@ This video demonstrates:
 | Member | Contributions |
 |--------|--------------|
 | [Janvi Ravindra Jadav] | Frontend development, UI/UX design, animation implementation,database integration |
-| [Lakshmipriya K J] | Backend development, API creation, database integration, Testing, documentation, deployment  |
+| [Lakshmipriya K J] | Backend development, API creation, Testing, documentation, deployment  |
 
 ---
 
